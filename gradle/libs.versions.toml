@@ -1,0 +1,22 @@
+[versions]
+serenity = "5.3.2"
+junitPlatform = "1.13.0"
+cucumberJunit = "7.34.2"
+junitSuite = "6.0.3"
+logback = "1.2.10"
+assertj = "3.23.1"
+
+[libraries]
+serenity-core = { module = "net.serenity-bdd:serenity-core", version.ref = "serenity" }
+serenity-cucumber = { module = "net.serenity-bdd:serenity-cucumber", version.ref = "serenity" }
+serenity-screenplay = { module = "net.serenity-bdd:serenity-screenplay", version.ref = "serenity" }
+serenity-screenplay-webdriver = { module = "net.serenity-bdd:serenity-screenplay-webdriver", version.ref = "serenity" }
+serenity-ensure = { module = "net.serenity-bdd:serenity-ensure", version.ref = "serenity" }
+serenity-rest-assured = { module = "net.serenity-bdd:serenity-rest-assured", version.ref = "serenity" }
+junit-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform" }
+cucumber-engine = { module = "io.cucumber:cucumber-junit-platform-engine", version.ref = "cucumberJunit" }
+junit-suite = { module = "org.junit.platform:junit-platform-suite", version.ref = "junitSuite" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitSuite" }
+junit-vintage = { module = "org.junit.vintage:junit-vintage-engine", version.ref = "junitSuite" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
