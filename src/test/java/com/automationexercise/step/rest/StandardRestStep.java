@@ -18,9 +18,25 @@ public class StandardRestStep {
         restAssuredThat(response -> response.body("responseCode", Matchers.equalTo(200)));
     }
 
+
+    @Then("I should get a successfully created response")
+    public void checkResponseIsSuccessfullyCreated() {
+        restAssuredThat(response -> response.body("responseCode", Matchers.equalTo(201)));
+    }
+
     @Then("I should get a response saying that is unsupported")
     public void checkResponseIsUnsupported() {
         restAssuredThat(response -> response.body("responseCode", Matchers.equalTo(405)));
+    }
+
+    @Then("I should get a response saying that it is not found")
+    public void checkResponseIsNotFound() {
+        restAssuredThat(response -> response.body("responseCode", Matchers.equalTo(404)));
+    }
+
+    @Then("I should get a response saying that it is a bad request")
+    public void checkResponseIsBadRequest() {
+        restAssuredThat(response -> response.body("responseCode", Matchers.equalTo(400)));
     }
 
     @Then("I should get a list of {endpoint}")
@@ -37,5 +53,6 @@ public class StandardRestStep {
     @BeforeAll
     public static void setupParser() {
         RestAssured.registerParser("text/html", Parser.JSON);
+        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
 }

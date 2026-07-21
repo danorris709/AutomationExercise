@@ -6,7 +6,7 @@ Feature: Brands API endpoint
          And I should get a list of brands
 
    Scenario: The brands list endpoint does not allow post requests
-         When I add a new brand
+         When I add a brand
          Then I should get a response saying that is unsupported
          And I should get a message matching "This request method is not supported."
 

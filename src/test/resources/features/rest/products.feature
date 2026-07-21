@@ -6,7 +6,7 @@ Feature: Products API endpoint
          And I should get a list of products
 
    Scenario: The products list endpoint does not allow post requests
-         When I add a new product
+         When I add a product
          Then I should get a response saying that is unsupported
          And I should get a message matching "This request method is not supported."
 

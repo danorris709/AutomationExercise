@@ -22,4 +22,6 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 )
 public class AutomationExerciseTestSuite {
 
+    public static final String CREATED_USER = "createdUserId";
+
 }

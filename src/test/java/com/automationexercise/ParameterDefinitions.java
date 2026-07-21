@@ -9,7 +9,7 @@ public class ParameterDefinitions {
         return message;
     }
 
-    @ParameterType("[a-zA-Z]+")
+    @ParameterType("[a-zA-Z ]+")
     public EndPoint endpoint(String endpoint) {
         return EndPoint.find(endpoint);
     }
