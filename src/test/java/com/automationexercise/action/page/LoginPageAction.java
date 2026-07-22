@@ -20,6 +20,11 @@ public class LoginPageAction {
         assertThat(this.loginPage.getLoginForm().isVisible()).isTrue();
     }
 
+    @Step("Verify incorrect email or password error is visible")
+    public void verifyIncorrectEmailOrPasswordError() {
+        assertThat(this.loginPage.getIncorrectEmailOrPassword().isVisible()).isTrue();
+    }
+
     @Step("Start signup process")
     public void startSignupProcess() {
         this.loginPage.beginSignUp(AutomationExerciseTestSuite.getAccountContext().getDraft());

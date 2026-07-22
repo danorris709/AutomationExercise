@@ -36,3 +36,11 @@ Feature: User Registration Management
 
     When I click to delete my account
     Then I should see the "ACCOUNT DELETED!" success screen
+
+  Scenario: Attempt login to invalid user
+    Given I have an unregistered account
+    When I navigate to the Signup and Login page
+    Then I should see the "Login to your account" form
+
+    When I login with my email and password
+    Then I should see the "incorrect email or password" error

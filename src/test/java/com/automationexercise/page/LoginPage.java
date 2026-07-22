@@ -35,6 +35,9 @@ public class LoginPage extends AutomationExercisePage {
     @FindBy(className = "login-form")
     private WebElementFacade loginForm;
 
+    @FindBy(css = ".login-form form p[style*='color: red']")
+    private WebElementFacade incorrectEmailOrPassword;
+
     public void beginSignUp(AccountDraft draft) {
         this.signupNameBox.type(draft.name());
         this.signupEmailBox.type(draft.email());
@@ -53,6 +56,10 @@ public class LoginPage extends AutomationExercisePage {
 
     public WebElementFacade getLoginForm() {
         return this.loginForm;
+    }
+
+    public WebElementFacade getIncorrectEmailOrPassword() {
+        return this.incorrectEmailOrPassword;
     }
 
 }

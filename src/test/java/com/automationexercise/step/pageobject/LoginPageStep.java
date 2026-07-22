@@ -29,4 +29,9 @@ public class LoginPageStep {
     public void enterEmailAndPassword() {
         this.loginPageAction.loginWithEmailAndPassword();
     }
+
+    @Then("I should see the \"incorrect email or password\" error")
+    public void verifyIncorrectEmailOrPassword() {
+        this.loginPageAction.verifyIncorrectEmailOrPasswordError();
+    }
 }

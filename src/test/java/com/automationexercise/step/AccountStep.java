@@ -25,6 +25,12 @@ public class AccountStep {
         this.accountContext().createDraft(alias);
     }
 
+    @Given("I have an unregistered account")
+    public void setupUnregisteredAccount() {
+        var account = this.accountContext().createDraft().toAccount();
+        this.accountContext().registerAccount(account);
+    }
+
     @Given("I have a registered account")
     public void setupRegisteredAccount() {
         var draft = this.accountContext().createDraft();
