@@ -31,24 +31,6 @@ public class AutomationExerciseTestSuite {
     public static final String REQUEST_CONTEXT = "requestContext";
 
     public static ScenarioAccountContext getAccountContext() {
-        ScenarioAccountContext context = Serenity.sessionVariableCalled(ACCOUNT_CONTEXT);
-
-        if (context == null) {
-            context = new ScenarioAccountContext();
-            Serenity.setSessionVariable(ACCOUNT_CONTEXT).to(context);
-        }
-
-        return context;
-    }
-
-    public static RequestContext getRequestContext() {
-        return Serenity.sessionVariableCalled(REQUEST_CONTEXT);
-    }
-
-    public static void modifyRequestContext(UnaryOperator<RequestContext> modifier) {
-        var context = getRequestContext();
-        var updatedContext = modifier.apply(context);
-
-        Serenity.setSessionVariable(REQUEST_CONTEXT).to(updatedContext);
+        return (ScenarioAccountContext) Serenity.getCurrentSession().computeIfAbsent(ACCOUNT_CONTEXT, _ -> new ScenarioAccountContext());
     }
 }
