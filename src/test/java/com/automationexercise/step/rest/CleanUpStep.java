@@ -3,7 +3,7 @@ package com.automationexercise.step.rest;
 import com.automationexercise.AutomationExerciseTestSuite;
 import com.automationexercise.EndPoint;
 import com.automationexercise.action.StandardRestAction;
-import com.automationexercise.api.UserId;
+import com.automationexercise.api.UserAccount;
 import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.restassured.http.ContentType;
@@ -19,17 +19,17 @@ public class CleanUpStep {
 
     @After("@delete-user")
     public void deleteCreatedUser() {
-        UserId userId = Serenity.sessionVariableCalled(AutomationExerciseTestSuite.CREATED_USER);
+        UserAccount userAccount = Serenity.sessionVariableCalled(AutomationExerciseTestSuite.CREATED_USER);
 
-        if (userId == null) {
+        if (userAccount == null) {
             return;
         }
 
         SerenityRest.given()
                 .contentType(ContentType.URLENC)
                 .baseUri(StandardRestAction.API_URL + "/" + EndPoint.DELETE_ACCOUNT.apiPath())
-                .formParam("email", userId.email())
-                .formParam("password", userId.password())
+                .formParam("email", userAccount.email())
+                .formParam("password", userAccount.password())
                 .delete()
                 .then()
                 .statusCode(200);

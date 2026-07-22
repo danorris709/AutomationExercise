@@ -3,12 +3,11 @@ package com.automationexercise.step.rest;
 import com.automationexercise.AutomationExerciseTestSuite;
 import com.automationexercise.EndPoint;
 import com.automationexercise.action.StandardRestAction;
-import com.automationexercise.api.UserId;
+import com.automationexercise.api.UserAccount;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.core.Serenity;
-import net.serenitybdd.rest.SerenityRest;
 
 import java.util.Map;
 
@@ -81,30 +80,5 @@ public class EndPointStep {
                 .apiPath(EndPoint.SEARCH_FOR_PRODUCT.apiPath())
                 .modifier(request -> request.param("search_product", message))
                 .sendPost();
-    }
-
-    @When("I create an account with the details:")
-    public void createAccount(Map<String, String> userDetails) {
-        this.standardRestAction
-                .apiPath(EndPoint.CREATE_ACCOUNT.apiPath())
-                .params(userDetails)
-                .sendPost();
-
-        Serenity.setSessionVariable(AutomationExerciseTestSuite.CREATED_USER)
-                .to(new UserId(userDetails.get("email"), userDetails.get("password")));
-    }
-
-    @When("I delete an account with the details:")
-    public void deleteAccount(Map<String, String> userDetails) {
-        this.standardRestAction
-                .apiPath(EndPoint.DELETE_ACCOUNT.apiPath())
-                .modifier(spec -> {
-                    spec.contentType(ContentType.URLENC);
-
-                    for (var detail : userDetails.entrySet()) {
-                        spec.formParam(detail.getKey(), detail.getValue());
-                    }
-                })
-                .sendDelete();
     }
 }
