@@ -1,26 +1,23 @@
 package com.automationexercise.action.rest;
 
+import com.automationexercise.AutomationExerciseTestSuite;
 import com.automationexercise.api.RequestContext;
 import io.restassured.specification.RequestSpecification;
 import net.serenitybdd.annotations.Step;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.rest.SerenityRest;
 
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.function.UnaryOperator;
 
 public class StandardRestAction {
 
     public static final String API_URL = "https://automationexercise.com/api";
 
-    private ThreadLocal<RequestContext> requestContext = new ThreadLocal<>();
-
     public StandardRestAction apiPath(String path) {
-        this.requestContext.set(this.getContext().apiPath(path));
+        this.modifyContext(context -> context.apiPath(path));
         return this;
-    }
-
-    public StandardRestAction body(Object body) {
-        return this.modifier(requestSpecification -> requestSpecification.body(body));
     }
 
     public StandardRestAction params(Map<String, String> params) {
@@ -32,18 +29,18 @@ public class StandardRestAction {
     }
 
     public StandardRestAction modifier(Consumer<RequestSpecification> modifier) {
-        this.requestContext.set(this.getContext().modifier(modifier));
+        this.modifyContext(context -> context.modifier(modifier));
         return this;
     }
 
     private RequestContext getContext() {
-        var context = this.requestContext.get();
+        return (RequestContext) Serenity.getCurrentSession().computeIfAbsent(AutomationExerciseTestSuite.REQUEST_CONTEXT, _ -> RequestContext.empty(API_URL));
+    }
 
-        if (context == null) {
-            context = RequestContext.empty(API_URL);
-        }
-
-        return context;
+    private void modifyContext(UnaryOperator<RequestContext> modifier) {
+        var context = this.getContext();
+        var updatedContext = modifier.apply(context);
+        Serenity.getCurrentSession().put(AutomationExerciseTestSuite.REQUEST_CONTEXT, updatedContext);
     }
 
     @Step("Sends a get to the api path")
@@ -67,19 +64,15 @@ public class StandardRestAction {
     }
 
     private void sendRequest(Consumer<RequestSpecification> finalMethod) {
-        try {
-            var request = SerenityRest.given();
+        var request = SerenityRest.given();
 
-            this.applyContext(request);
+        this.applyContext(request);
 
-            finalMethod.accept(request);
-        } finally {
-            this.requestContext.remove();
-        }
+        finalMethod.accept(request);
     }
 
     private void applyContext(RequestSpecification requestSpecification) {
-        var modifiers = this.requestContext.get().modifiers();
+        var modifiers = this.getContext().modifiers();
 
         for (var modifier : modifiers) {
             modifier.accept(requestSpecification);
