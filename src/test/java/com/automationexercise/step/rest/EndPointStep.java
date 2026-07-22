@@ -1,13 +1,10 @@
 package com.automationexercise.step.rest;
 
-import com.automationexercise.AutomationExerciseTestSuite;
 import com.automationexercise.EndPoint;
-import com.automationexercise.action.StandardRestAction;
-import com.automationexercise.api.UserAccount;
+import com.automationexercise.action.rest.StandardRestAction;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import net.serenitybdd.annotations.Steps;
-import net.serenitybdd.core.Serenity;
 
 import java.util.Map;
 

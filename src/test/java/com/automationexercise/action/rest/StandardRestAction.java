@@ -1,4 +1,4 @@
-package com.automationexercise.action;
+package com.automationexercise.action.rest;
 
 import com.automationexercise.api.RequestContext;
 import io.restassured.specification.RequestSpecification;

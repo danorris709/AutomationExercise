@@ -1,10 +1,8 @@
 package com.automationexercise.step.rest;
 
-import com.automationexercise.action.AccountAction;
+import com.automationexercise.action.rest.AccountAction;
 import com.automationexercise.api.ScenarioAccountContext;
-import com.automationexercise.api.UserAccount;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;

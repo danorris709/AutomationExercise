@@ -1,4 +1,4 @@
-package com.automationexercise.action;
+package com.automationexercise.action.rest;
 
 import com.automationexercise.EndPoint;
 import com.automationexercise.api.AccountDraft;
