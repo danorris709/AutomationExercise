@@ -30,6 +30,14 @@ public record AccountDraft(Map<String, String> properties) {
         return validAccount("default");
     }
 
+    public String name() {
+        return this.properties.get("name");
+    }
+
+    public String email() {
+        return this.properties.get("email");
+    }
+
     public static AccountDraft validAccount(String alias) {
         Map<String, String> properties = new HashMap<>();
 
