@@ -15,6 +15,10 @@ public record UserAccount(String email, String password, Map<String, String> pro
         this(properties.get("email"), properties.get("password"), properties);
     }
 
+    public String name() {
+        return this.properties.get("name");
+    }
+
     private static Map<String, String> cleanMap(Map<String, String> properties) {
         Map<String, String> copy = new HashMap<>(properties);
         copy.remove("email");

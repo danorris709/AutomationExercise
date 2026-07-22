@@ -51,7 +51,7 @@ public record AccountDraft(Map<String, String> properties) {
         properties.put("email", uniqueEmail);
         properties.put("password", "SecurePass123!");
         properties.put("birth_date", "15");
-        properties.put("birth_month", "08");
+        properties.put("birth_month", "August");
         properties.put("birth_year", "1990");
         properties.put("company", "QA Testing Corp");
         properties.put("address1", "123 Main Street");

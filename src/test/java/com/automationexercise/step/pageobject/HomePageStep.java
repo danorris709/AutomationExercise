@@ -2,6 +2,7 @@ package com.automationexercise.step.pageobject;
 
 import com.automationexercise.action.page.HomePageAction;
 import com.automationexercise.action.page.LoginPageAction;
+import com.automationexercise.action.page.SignupPageAction;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,9 +12,6 @@ public class HomePageStep {
 
     @Steps
     private HomePageAction homePageAction;
-
-    @Steps
-    private LoginPageAction loginPageAction;
 
     @Given("I am on the home page")
     public void openHomePage() {
@@ -25,14 +23,18 @@ public class HomePageStep {
         this.homePageAction.shouldSeeHomePage();
     }
 
-    @When("I click the sign up and login button")
+    @When("I navigate to the Signup and Login page")
     public void clickSignUpLoginButton() {
         this.homePageAction.clickNavBar(3);
     }
 
-    @Then("I should see the new user sign up page")
-    public void seeSignUpPage() {
-        this.loginPageAction.checkSignUpTextIsVisible();
+    @Then("I should be logged in")
+    public void confirmLoggedIn() {
+        this.homePageAction.verifyLoggedIn();
     }
 
+    @When("I click to delete my account")
+    public void deleteAccount() {
+        this.homePageAction.clickNavBar(4);
+    }
 }
