@@ -25,6 +25,11 @@ public class LoginPageStep {
         this.loginPageAction.startSignupProcess();
     }
 
+    @When("I start the signup process with a registered account")
+    public void beginSignUpWithRegisteredAccount() {
+        this.loginPageAction.startSignupProcessWithRegisteredAccount();
+    }
+
     @When("I login with my email and password")
     public void enterEmailAndPassword() {
         this.loginPageAction.loginWithEmailAndPassword();
@@ -33,5 +38,10 @@ public class LoginPageStep {
     @Then("I should see the \"incorrect email or password\" error")
     public void verifyIncorrectEmailOrPassword() {
         this.loginPageAction.verifyIncorrectEmailOrPasswordError();
+    }
+
+    @Then("I should see the \"email address already exists\" error")
+    public void verifyEmailAddressAlreadyExists() {
+        this.loginPageAction.verifyEmailAddressAlreadyExists();
     }
 }

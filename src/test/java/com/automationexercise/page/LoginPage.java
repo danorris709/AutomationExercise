@@ -38,6 +38,9 @@ public class LoginPage extends AutomationExercisePage {
     @FindBy(css = ".login-form form p[style*='color: red']")
     private WebElementFacade incorrectEmailOrPassword;
 
+    @FindBy(css = ".signup-form form p[style*='color: red']")
+    private WebElementFacade emailAddressAlreadyExists;
+
     public void beginSignUp(AccountDraft draft) {
         this.signupNameBox.type(draft.name());
         this.signupEmailBox.type(draft.email());
@@ -62,4 +65,7 @@ public class LoginPage extends AutomationExercisePage {
         return this.incorrectEmailOrPassword;
     }
 
+    public WebElementFacade getEmailAddressAlreadyExists() {
+        return this.emailAddressAlreadyExists;
+    }
 }

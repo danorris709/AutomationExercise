@@ -45,7 +45,6 @@ Feature: User Registration Management
     When I login with my email and password
     Then I should see the "incorrect email or password" error
 
-
   Scenario: Check logout flow
     Given I have a registered account
     When I navigate to the Signup and Login page
@@ -57,3 +56,11 @@ Feature: User Registration Management
 
     When I click to logout
     Then I should see the "Login to your account" form
+
+  Scenario: Check registering with an already registered email
+    Given I have a registered account
+    When I navigate to the Signup and Login page
+    Then I should see the "New User Signup!" form
+
+    When I start the signup process with a registered account
+    Then I should see the "email address already exists" error

@@ -39,6 +39,10 @@ public record UserAccount(String email, String password, Map<String, String> pro
         return copy;
     }
 
+    public AccountDraft toDraft() {
+        return new AccountDraft(this.toParameters());
+    }
+
     public UserAccount override(Map<String, String> properties) {
         var email = properties.getOrDefault("email", this.email);
         var password = properties.getOrDefault("password", this.password);

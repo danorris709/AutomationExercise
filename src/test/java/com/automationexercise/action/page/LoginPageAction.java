@@ -25,9 +25,20 @@ public class LoginPageAction {
         assertThat(this.loginPage.getIncorrectEmailOrPassword().isVisible()).isTrue();
     }
 
+    @Step("Verify email address already exists error is visible")
+    public void verifyEmailAddressAlreadyExists() {
+        assertThat(this.loginPage.getEmailAddressAlreadyExists().isVisible()).isTrue();
+    }
+
     @Step("Start signup process")
     public void startSignupProcess() {
         this.loginPage.beginSignUp(AutomationExerciseTestSuite.getAccountContext().getDraft());
+    }
+
+    @Step("Start signup process with registered account")
+    public void startSignupProcessWithRegisteredAccount() {
+        var account = AutomationExerciseTestSuite.getAccountContext().getAccount();
+        this.loginPage.beginSignUp(account.toDraft());
     }
 
     @Step("Login with email and password")
