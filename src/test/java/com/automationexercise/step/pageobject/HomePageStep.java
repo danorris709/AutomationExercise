@@ -39,4 +39,9 @@ public class HomePageStep {
         this.homePageAction.clickNavBar(4);
         AutomationExerciseTestSuite.getAccountContext().removeAccount();
     }
+
+    @When("I click to logout")
+    public void logout() {
+        this.homePageAction.clickNavBar(3);
+    }
 }

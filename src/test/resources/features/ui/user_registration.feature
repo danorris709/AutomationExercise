@@ -44,3 +44,16 @@ Feature: User Registration Management
 
     When I login with my email and password
     Then I should see the "incorrect email or password" error
+
+
+  Scenario: Check logout flow
+    Given I have a registered account
+    When I navigate to the Signup and Login page
+    Then I should see the "Login to your account" form
+
+    When I login with my email and password
+    Then I should see the home page
+    And I should be logged in
+
+    When I click to logout
+    Then I should see the "Login to your account" form
