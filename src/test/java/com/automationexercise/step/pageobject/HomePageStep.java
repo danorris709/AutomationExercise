@@ -1,5 +1,6 @@
 package com.automationexercise.step.pageobject;
 
+import com.automationexercise.AutomationExerciseTestSuite;
 import com.automationexercise.action.page.HomePageAction;
 import com.automationexercise.action.page.LoginPageAction;
 import com.automationexercise.action.page.SignupPageAction;
@@ -36,5 +37,6 @@ public class HomePageStep {
     @When("I click to delete my account")
     public void deleteAccount() {
         this.homePageAction.clickNavBar(4);
+        AutomationExerciseTestSuite.getAccountContext().removeAccount();
     }
 }

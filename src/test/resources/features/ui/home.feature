@@ -22,4 +22,17 @@ Feature: User Registration Management
 
     When I click to delete my account
     Then I should see the "ACCOUNT DELETED!" success screen
-    And I proceed from the account deleted screen
+    When I proceed from the account deleted screen
+    Then I should see the home page
+
+  Scenario: Login to a user and delete the account
+    Given I have a registered account
+    When I navigate to the Signup and Login page
+    Then I should see the "Login to your account" form
+
+    When I login with my email and password
+    Then I should see the home page
+    And I should be logged in
+
+    When I click to delete my account
+    Then I should see the "ACCOUNT DELETED!" success screen

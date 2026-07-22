@@ -15,8 +15,18 @@ public class LoginPageStep {
         this.loginPageAction.checkSignupIsVisible();
     }
 
+    @Then("I should see the \"Login to your account\" form")
+    public void seeLoginForm() {
+        this.loginPageAction.checkLoginIsVisible();
+    }
+
     @When("I start the signup process")
     public void beginSignUp() {
         this.loginPageAction.startSignupProcess();
+    }
+
+    @When("I login with my email and password")
+    public void enterEmailAndPassword() {
+        this.loginPageAction.loginWithEmailAndPassword();
     }
 }
