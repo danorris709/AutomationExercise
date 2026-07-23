@@ -34,7 +34,7 @@ public class StandardRestAction {
     }
 
     private RequestContext getContext() {
-        return (RequestContext) Serenity.getCurrentSession().computeIfAbsent(AutomationExerciseTestSuite.REQUEST_CONTEXT, _ -> RequestContext.empty(API_URL));
+        return (RequestContext) Serenity.getCurrentSession().computeIfAbsent(AutomationExerciseTestSuite.REQUEST_CONTEXT, ___ -> RequestContext.empty(API_URL));
     }
 
     private void modifyContext(UnaryOperator<RequestContext> modifier) {

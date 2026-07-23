@@ -1,18 +1,14 @@
 package com.automationexercise;
 
-import com.automationexercise.api.RequestContext;
 import com.automationexercise.api.ScenarioAccountContext;
-import io.restassured.RestAssured;
-import io.restassured.parsing.Parser;
 import net.serenitybdd.core.Serenity;
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.IncludeEngines;
 import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
 
-import java.util.function.UnaryOperator;
-
-import static io.cucumber.junit.platform.engine.Constants.*;
+import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
+import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 
 @Suite
 @IncludeEngines("cucumber")
@@ -32,7 +28,7 @@ public class AutomationExerciseTestSuite {
     public static final String LOGGED_IN = "loggedIn";
 
     public static ScenarioAccountContext getAccountContext() {
-        return (ScenarioAccountContext) Serenity.getCurrentSession().computeIfAbsent(ACCOUNT_CONTEXT, _ -> new ScenarioAccountContext());
+        return (ScenarioAccountContext) Serenity.getCurrentSession().computeIfAbsent(ACCOUNT_CONTEXT, ___ -> new ScenarioAccountContext());
     }
 
     public static boolean isLoggedIn() {
