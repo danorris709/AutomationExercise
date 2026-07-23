@@ -1,6 +1,7 @@
 package com.automationexercise.step.pageobject;
 
 import com.automationexercise.AutomationExerciseTestSuite;
+import com.automationexercise.NavBar;
 import com.automationexercise.action.page.HomePageAction;
 import com.automationexercise.action.page.LoginPageAction;
 import com.automationexercise.action.page.SignupPageAction;
@@ -24,14 +25,9 @@ public class HomePageStep {
         this.homePageAction.shouldSeeHomePage();
     }
 
-    @When("I navigate to the Signup and Login page")
-    public void clickSignUpLoginButton() {
-        this.homePageAction.clickNavBar(3);
-    }
-
-    @When("I navigate to the contact us page")
-    public void clickContactUsButton() {
-        this.homePageAction.clickNavBar(7);
+    @When("I navigate to the {navbar} page")
+    public void clickSignUpLoginButton(NavBar navBar) {
+        this.homePageAction.clickNavBar(navBar.position());
     }
 
     @Then("I should be logged in")

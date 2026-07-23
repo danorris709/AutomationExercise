@@ -45,6 +45,7 @@ public class LoginPageAction {
     public void loginWithEmailAndPassword() {
         var account = AutomationExerciseTestSuite.getAccountContext().getAccount();
         this.loginPage.loginToAccount(account);
+        AutomationExerciseTestSuite.setLoggedIn(true);
     }
 
 }

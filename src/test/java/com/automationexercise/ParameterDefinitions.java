@@ -18,4 +18,9 @@ public class ParameterDefinitions {
     public EndPoint endpoint(String endpoint) {
         return EndPoint.find(endpoint);
     }
+
+    @ParameterType("[a-zA-Z ]+")
+    public NavBar navbar(String navbar) {
+        return NavBar.find(navbar);
+    }
 }

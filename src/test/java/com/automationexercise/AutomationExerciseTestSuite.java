@@ -29,8 +29,17 @@ public class AutomationExerciseTestSuite {
 
     public static final String ACCOUNT_CONTEXT = "accountContext";
     public static final String REQUEST_CONTEXT = "requestContext";
+    public static final String LOGGED_IN = "loggedIn";
 
     public static ScenarioAccountContext getAccountContext() {
         return (ScenarioAccountContext) Serenity.getCurrentSession().computeIfAbsent(ACCOUNT_CONTEXT, _ -> new ScenarioAccountContext());
+    }
+
+    public static boolean isLoggedIn() {
+        return (boolean) Serenity.getCurrentSession().getOrDefault(LOGGED_IN, false);
+    }
+
+    public static void setLoggedIn(boolean loggedIn) {
+        Serenity.getCurrentSession().put(LOGGED_IN, loggedIn);
     }
 }
