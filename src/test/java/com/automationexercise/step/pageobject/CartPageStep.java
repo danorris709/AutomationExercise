@@ -2,6 +2,7 @@ package com.automationexercise.step.pageobject;
 
 import com.automationexercise.action.page.CartPageAction;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
 
 public class CartPageStep {
@@ -17,5 +18,10 @@ public class CartPageStep {
     @Then("I should see {int} products in my cart")
     public void verifyCartSize(int size) {
         this.action.verifyThereIsItemsInCart(size);
+    }
+
+    @When("I proceed to checkout")
+    public void whenIProceedToCheckout() {
+        this.action.proceedToCheckout();
     }
 }

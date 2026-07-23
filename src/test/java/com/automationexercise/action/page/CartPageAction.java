@@ -20,4 +20,9 @@ public class CartPageAction {
             assertThat(cartItem.total()).isEqualTo(cartItem.price() * cartItem.quantity());
         }
     }
+
+    @Step("Click checkout button")
+    public void proceedToCheckout() {
+        this.cartPage.getCheckoutButton().click();
+    }
 }

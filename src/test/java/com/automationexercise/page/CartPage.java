@@ -3,6 +3,7 @@ package com.automationexercise.page;
 import com.automationexercise.api.CartItem;
 import net.serenitybdd.annotations.DefaultUrl;
 import net.serenitybdd.core.annotations.findby.By;
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 import java.util.ArrayList;
@@ -10,6 +11,9 @@ import java.util.List;
 
 @DefaultUrl("https://automationexercise.com/view_cart")
 public class CartPage extends AutomationExercisePage {
+
+    @FindBy(css = ".btn.check_out")
+    private WebElementFacade checkoutButton;
 
     public List<CartItem> getCartItems() {
         List<CartItem> parsedItems = new ArrayList<>();
@@ -29,5 +33,9 @@ public class CartPage extends AutomationExercisePage {
 
     public List<WebElementFacade> getAllCartElements() {
         return findAll(By.cssSelector("#cart_info_table tbody tr"));
+    }
+
+    public WebElementFacade getCheckoutButton() {
+        return this.checkoutButton;
     }
 }
