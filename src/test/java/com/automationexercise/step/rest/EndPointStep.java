@@ -1,6 +1,6 @@
 package com.automationexercise.step.rest;
 
-import com.automationexercise.EndPoint;
+import com.automationexercise.api.EndPoint;
 import com.automationexercise.action.rest.StandardRestAction;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;

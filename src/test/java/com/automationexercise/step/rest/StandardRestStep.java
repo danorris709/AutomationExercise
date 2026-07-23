@@ -1,6 +1,6 @@
 package com.automationexercise.step.rest;
 
-import com.automationexercise.EndPoint;
+import com.automationexercise.api.EndPoint;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;

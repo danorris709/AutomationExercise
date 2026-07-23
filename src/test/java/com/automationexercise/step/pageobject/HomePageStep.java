@@ -1,10 +1,8 @@
 package com.automationexercise.step.pageobject;
 
 import com.automationexercise.AutomationExerciseTestSuite;
-import com.automationexercise.NavBar;
+import com.automationexercise.api.NavBar;
 import com.automationexercise.action.page.HomePageAction;
-import com.automationexercise.action.page.LoginPageAction;
-import com.automationexercise.action.page.SignupPageAction;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

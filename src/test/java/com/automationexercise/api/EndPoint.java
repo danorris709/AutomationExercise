@@ -1,6 +1,4 @@
-package com.automationexercise;
-
-import com.google.common.graph.EndpointPair;
+package com.automationexercise.api;
 
 import java.util.Locale;
 import java.util.Set;

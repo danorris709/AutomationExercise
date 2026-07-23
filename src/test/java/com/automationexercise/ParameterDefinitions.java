@@ -1,5 +1,7 @@
 package com.automationexercise;
 
+import com.automationexercise.api.EndPoint;
+import com.automationexercise.api.NavBar;
 import io.cucumber.java.ParameterType;
 
 public class ParameterDefinitions {

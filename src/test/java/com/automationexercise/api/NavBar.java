@@ -1,4 +1,6 @@
-package com.automationexercise;
+package com.automationexercise.api;
+
+import com.automationexercise.AutomationExerciseTestSuite;
 
 import java.util.Locale;
 import java.util.Set;

@@ -1,6 +1,6 @@
 package com.automationexercise.action.rest;
 
-import com.automationexercise.EndPoint;
+import com.automationexercise.api.EndPoint;
 import com.automationexercise.api.AccountDraft;
 import com.automationexercise.api.UserAccount;
 import io.restassured.http.ContentType;
