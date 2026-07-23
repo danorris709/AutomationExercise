@@ -29,6 +29,11 @@ public class HomePageStep {
         this.homePageAction.clickNavBar(3);
     }
 
+    @When("I navigate to the contact us page")
+    public void clickContactUsButton() {
+        this.homePageAction.clickNavBar(7);
+    }
+
     @Then("I should be logged in")
     public void confirmLoggedIn() {
         this.homePageAction.verifyLoggedIn();
