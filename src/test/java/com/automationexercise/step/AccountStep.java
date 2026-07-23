@@ -57,12 +57,16 @@ public class AccountStep {
 
     @When("I register my account")
     public void registerAccount() {
-        this.accountAction.registerAccount(this.accountContext().getDraft());
+        var draft = this.accountContext().getDraft();
+        var account = this.accountAction.registerAccount(draft);
+        this.accountContext().registerAccount(account);
     }
 
     @When("I register my account called \"{alias}\"")
     public void registerAccount(String alias) {
-        this.accountAction.registerAccount(this.accountContext().getDraft(alias));
+        var draft = this.accountContext().getDraft(alias);
+        var account = this.accountAction.registerAccount(draft);
+        this.accountContext().registerAccount(alias, account);
     }
 
     @When("I update my account with properties:")
