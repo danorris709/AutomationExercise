@@ -39,7 +39,7 @@ public enum NavBar {
             }
         }
 
-        return null;
+        throw new IllegalArgumentException("Unknown NavBar element: '" + text + "'");
     }
 
     public int position() {

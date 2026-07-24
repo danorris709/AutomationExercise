@@ -39,6 +39,6 @@ public enum EndPoint {
             }
         }
 
-        return null;
+        throw new IllegalArgumentException("Unknown EndPoint: '" + name + "'");
     }
 }
